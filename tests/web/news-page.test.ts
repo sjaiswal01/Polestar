@@ -27,7 +27,7 @@ test.describe("Polestar Developer Get Started Page", async () => {
         await menuPage.openNewsLink();
         const dropdownValues = await newsPage.getDropdownValues();
         console.log(dropdownValues);
-        //expect(dropdownValues.length).toBeGreaterThan(0);
+        expect(dropdownValues.length).toBeGreaterThan(0);
     });
     
 });

@@ -3,10 +3,14 @@ import { Locator, Page } from '@playwright/test';
 export class NewsPage {
     private page: Page;
     private dropdown: Locator
+    private clickDropdown: Locator
+    private dropdownItems: Locator
 
     constructor(page:Page){
         this.page = this.page;
-        this.dropdown = page.locator("//div[@class='css-1kt83gu']");
+        this.dropdown = page.getByRole('combobox');
+        this.clickDropdown = page.getByLabel('chevronDown');
+        this.dropdownItems = page.locator('//div[contains(@id, "dropdown-field")]//button');
     }
 
     async openDropdown()
@@ -16,9 +20,9 @@ export class NewsPage {
 
     async getDropdownValues() {
         await this.dropdown.waitFor();
-        const options = await this.dropdown.selectOption('All');
-        console.log(options);
-
+        await this.clickDropdown.click();
+        const dropdownValues = await this.dropdownItems.allTextContents();
+        return dropdownValues;
       }
 
 }
