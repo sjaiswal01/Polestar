@@ -1,0 +1,32 @@
+
+https://www.polestar.com/se/developer/get-started/
+
+1. Verify the return home Button: Click functionality of Button
+
+1. To verify the hamburger menu
+2. To verify all the links inside the menu
+3. Click on News link
+4. Choose brand
+5.
+
+1. Launch the URL(title)
+2. Verify News link
+3. Verify Home link
+4. Verify Discover Polestar 2 link
+
+
+//input[contains(@id, 'dropdown-field')]
+
+test('Verify totalNumber of todos and their count', async ({ request }) => {
+    const response = await request.get(environmentConstants.APIBaseUrl);
+    expect(response.ok()).toBeTruthy();
+    expect(response.status()).toBe(200);
+    const responseBody = await response.json();
+    const conversion_rates = await responseBody.conversion_rates;
+
+    // Verify total currencies in exchange rates
+    expect(Object.keys(conversion_rates).length).toBe(162);
+
+    // Verify GBP present in conversion rates
+    expect(Object.keys(conversion_rates)).toContain('GBP');
+});

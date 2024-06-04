@@ -1,0 +1,24 @@
+{
+  "name": "polestar",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "allTest": "npx playwright test",
+    "showReport": "npx playwright show-report",
+    "apiTest": "npx playwright test tests/api/",
+    "uiTest": "npx playwright test tests/web/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.44.1",
+    "@types/node": "^20.12.13",
+    "nyc": "^15.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simmi2903/plolestar-playwright-assignment"
+  }
+}
